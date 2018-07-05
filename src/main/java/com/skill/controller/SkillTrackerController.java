@@ -30,7 +30,7 @@ import com.skill.vo.SkillsVO;
  *
  */
 @RestController
-@CrossOrigin(origins = "http://localhost:4200") 
+@CrossOrigin(origins = "*") 
 /**Use the below mapping when you are running this spring boot application using jar.*/
 @RequestMapping(value="/skilltracker")
 public class SkillTrackerController {
@@ -38,13 +38,13 @@ public class SkillTrackerController {
 	@Autowired
 	private SkillTrackerService skillTrackerService;
 	
-	@CrossOrigin(origins = "http://localhost:4200") 
+	@CrossOrigin(origins = "*") 
 	@RequestMapping(value="/viewallskills", method = RequestMethod.GET)
 	public List<SkillsVO> viewallskills() {
 		return skillTrackerService.viewallskills();
 	}
 
-	@CrossOrigin(origins = "http://localhost:4200")
+	@CrossOrigin(origins = "*")
 	@PostMapping("/addAssociates")
 	public ResponseEntity<String> addAssociate(@RequestParam(value = "file", required = false) MultipartFile file,
 			@RequestParam("data") String associateData) {
@@ -57,28 +57,28 @@ public class SkillTrackerController {
 		}
 	}
 	
-	@CrossOrigin(origins = "http://localhost:4200") 
+	@CrossOrigin(origins = "*") 
 	@RequestMapping(value="/viewallAssociates", method = RequestMethod.GET)
 	public List<EmployeeVO> viewallAssociates() {
 		return skillTrackerService.viewallAssociates();
 	}
-	@CrossOrigin(origins = "http://localhost:4200")
+	@CrossOrigin(origins = "*")
 	@RequestMapping(value = "/deleteEmployee/{associateId}", method = RequestMethod.DELETE)
 	public List<EmployeeVO> deleteAssociate(@PathVariable String associateId) {
 		return skillTrackerService.deleteAssociate(associateId);
 	}
-	@CrossOrigin(origins = "http://localhost:4200")
+	@CrossOrigin(origins = "*")
 	@RequestMapping(value = "/addskill", method = RequestMethod.POST)
 	public List<SkillsVO> addSkill(@RequestBody SkillsVO skillVO) {
 		return skillTrackerService.addSkill(skillVO);
 	}
-	@CrossOrigin(origins = "http://localhost:4200")
+	@CrossOrigin(origins = "*")
 	@RequestMapping(value = "/editskill", method = RequestMethod.POST)
 	public List<SkillsVO> editSkill(@RequestBody SkillsVO skillVO) {
 		return skillTrackerService.editSkill(skillVO);
 	}
 	
-	@CrossOrigin(origins = "http://localhost:4200")
+	@CrossOrigin(origins = "*")
 	@RequestMapping(value = "/deleteskill", method = RequestMethod.DELETE)
 	public List<SkillsVO> deleteSkill(@RequestBody SkillsVO skillVO) {
 		return skillTrackerService.deleteSkill(skillVO);
