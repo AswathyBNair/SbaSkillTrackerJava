@@ -32,7 +32,7 @@ import com.skill.vo.SkillsVO;
 @RestController
 @CrossOrigin(origins = "http://localhost:4200") 
 /**Use the below mapping when you are running this spring boot application using jar.*/
-@RequestMapping(value="/skilltracker")
+
 public class SkillTrackerController {
 	
 	@Autowired
